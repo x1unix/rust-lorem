@@ -1,9 +1,10 @@
+mod lorem;
+
 use std::env;
-use std::fs;
 use std::process;
 use lorem::{generate, parse_expression, Expression};
 
-mod lorem;
+static LOREM_IPSUM_TEXT: &'static str = include_str!("../res/lorem.txt");
 
 fn main() {
     match env::args().len() {
@@ -29,9 +30,8 @@ fn main() {
 }
 
 fn print_lorem(expr: Expression) {
-    let text = fs::read_to_string("lorem.txt").unwrap();
     let Expression(count, delimiter) = expr;
-    let result = generate(&text, count, &delimiter);
+    let result = generate(LOREM_IPSUM_TEXT, count, &delimiter);
     println!("{}", result);
 }
 
