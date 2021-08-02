@@ -37,7 +37,7 @@ fn parse_expression(expression: &str) -> Result<Expression, &str> {
         return Err("Empty string");
     }
 
-    let count = match input[0..input.len()-1].parse::<usize>() {
+    let count: usize = match input[0..input.len()-1].parse() {
         Ok(n) => n,
         Err(_) => return Err("Invalid count")
     };
@@ -66,7 +66,7 @@ fn lorem(count: usize, delimiter: &str) {
             String::from(&text[..read_count])
         },
         _ => {
-            let chunks = text.split(delimiter).collect::<Vec<&str>>();
+            let chunks: Vec<&str> = text.split(delimiter).collect();
             if chunks.len() < read_count {
                 read_count = chunks.len();
             }
