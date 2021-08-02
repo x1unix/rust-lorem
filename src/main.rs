@@ -28,7 +28,6 @@ fn main() {
     }
 }
 
-
 fn print_lorem(expr: Expression) {
     let text = fs::read_to_string("lorem.txt").unwrap();
     let Expression(count, delimiter) = expr;

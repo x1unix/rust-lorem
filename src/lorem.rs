@@ -27,7 +27,6 @@ pub fn parse_expression(expression: &str) -> Result<Expression, &str> {
 }
 
 pub fn generate(text: &str, count: usize, delimiter: &str) -> String {
-    // let text = fs::read_to_string("lorem.txt").unwrap();
     let mut read_count = count;
     let chunks: String = match delimiter {
         SPLIT_BY_CHAR => {
